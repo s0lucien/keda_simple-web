@@ -1,0 +1,25 @@
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: lucian-cron-scaledobject
+  namespace: lucian
+spec:
+  scaleTargetRef:
+    name: lucian-simple-web
+  minReplicaCount: {{.Values.deployment_replicas}}
+  maxReplicaCount: 20
+  triggers:
+  - type: cron
+    metadata:
+      timezone: Europe/Copenhagen
+      start: 0 8 * * *
+      end: 0 12 * * *
+      desiredReplicas: "3"
+  - type: memory
+    metadata:
+      type: Utilization
+      value: "50"
+  - type: cpu
+    metadata:
+      type: Utilization
+      value: "50"

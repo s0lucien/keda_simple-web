@@ -1,0 +1,6 @@
+# Default values for keda_simple-web.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+docker_version: latest
+deployment_replicas: 1

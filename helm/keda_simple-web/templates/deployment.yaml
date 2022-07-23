@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lucian-simple-web
+spec:
+  selector:
+    matchLabels:
+      run: lucian-simple-web
+  replicas: {{.Values.deployment_replicas}}
+  template:
+    metadata:
+      labels:
+        run: lucian-simple-web
+    spec:
+      containers:
+      - name: lucian-simple-web
+        image: acrinterview.azurecr.io/simple-web:{{.Values.docker_version}}
+        ports:
+        - containerPort: 80
