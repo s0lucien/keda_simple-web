@@ -13,7 +13,7 @@ kube-destroy-simple-web:
 	kubectl delete -f kubernetes/simple-web.yaml --namespace=lucian
 
 helm-deploy:
-	helm install lucian_simple-web helm/keda_simple-web --values helm/keda_simple-web/values.yaml --namespace=lucian
+	helm install lucian-simple-web helm/keda_simple-web --values helm/keda_simple-web/values.yaml --namespace=lucian
 
 helm-destroy:
-	helm uninstall lucian_simple-web --namespace=lucian
+	helm uninstall lucian-simple-web --namespace=lucian
