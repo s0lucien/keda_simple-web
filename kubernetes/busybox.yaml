@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lucian-busybox
+spec:
+  selector:
+    matchLabels:
+      run: lucian-busybox
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: lucian-busybox
+    spec:
+      containers:
+      - name: lucian-busybox
+        image: busybox:latest
+        ports:
+        - containerPort: 80
