@@ -7,11 +7,6 @@ pipeline {
             )
     }
     stages {
-        stage('Git Repository'){
-            steps{
-                git branch: 'main', url: 'https://github.com/s0lucien/keda_simple-web.git'
-            }
-        }
         
         stage('Deploy') {
             
